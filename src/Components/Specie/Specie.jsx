@@ -83,7 +83,7 @@ export const Specie = ({
           <span>People:</span>
           {people.map((item) => (
             <Link
-              to="/person"
+              to="/people"
               className="linkItem"
               onClick={() => {
                 getNewObject(item.slice(21, item.length - 1));
@@ -93,6 +93,7 @@ export const Specie = ({
               {item}
             </Link>
           ))}
+          {' '}
         </li>
         <li>
           <span>Films:</span>

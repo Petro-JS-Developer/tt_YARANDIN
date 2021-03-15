@@ -90,7 +90,7 @@ export const Starship = ({
             <span>Pilots:</span>
             {pilots.map((item) => (
               <Link
-                to="/pilot"
+                to="/people"
                 className="linkItem"
                 onClick={() => {
                   getNewObject(item.slice(21, item.length - 1));

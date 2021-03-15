@@ -68,12 +68,12 @@ export const Character = ({
         </li>
         <li>
           <span>Films:</span>
-          {films.map((item, i) => (
+          {films.map((item) => (
             <Link
               to="/film"
               className="linkItem"
               onClick={() => {
-                getNewObject(`films/${i + 1}`);
+                getNewObject(item.slice(21, item.length - 1));
               }}
               key={item.slice(20)}
             >
@@ -83,12 +83,12 @@ export const Character = ({
         </li>
         <li>
           <span>Starships:</span>
-          {starships.map((item, i) => (
+          {starships.map((item) => (
             <Link
               to="/starship"
               className="linkItem"
               onClick={() => {
-                getNewObject(`starships/${i + 1}`);
+                getNewObject(item.slice(21, item.length - 1));
               }}
               key={item.slice(20)}
             >
@@ -98,12 +98,12 @@ export const Character = ({
         </li>
         <li>
           <span>Vehicles:</span>
-          {vehicles.map((item, i) => (
+          {vehicles.map((item) => (
             <Link
               to="/vehicle"
               className="linkItem"
               onClick={() => {
-                getNewObject(`vehicles/${i + 1}`);
+                getNewObject(item.slice(21, item.length - 1));
               }}
               key={item.slice(20)}
             >
@@ -113,12 +113,12 @@ export const Character = ({
         </li>
         <li>
           <span>Species:</span>
-          {species.map((item, i) => (
+          {species.map((item) => (
             <Link
               to="/specie"
               className="linkItem"
               onClick={() => {
-                getNewObject(`species/${i + 1}`);
+                getNewObject(item.slice(21, item.length - 1));
               }}
               key={item.slice(20)}
             >

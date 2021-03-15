@@ -78,7 +78,7 @@ export const Vehicle = ({
           <span>Pilots:</span>
           {pilots.map((item) => (
             <Link
-              to="/pilot"
+              to="/people"
               className="linkItem"
               onClick={() => {
                 getNewObject(item.slice(21, item.length - 1));
@@ -88,6 +88,7 @@ export const Vehicle = ({
               {item}
             </Link>
           ))}
+          .
         </li>
         <li>
           <span>Films:</span>
