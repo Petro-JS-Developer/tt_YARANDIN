@@ -1,0 +1,132 @@
+/* eslint-disable camelcase */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import './vehicle.scss';
+
+export const Vehicle = ({
+  name,
+  model,
+  manufacturer,
+  cost_in_credits,
+  length,
+  max_atmosphering_speed,
+  crew,
+  passengers,
+  cargo_capacity,
+  consumables,
+  vehicle_class,
+  pilots,
+  films,
+  getNewObject,
+}) => (
+  <div className="fcols fx-row">
+    <div className="fLeft">
+      <div className="fImg img-wide">
+        <img src="https://uaserials.pro/posters/1352.jpg" alt="Мандалорець" />
+      </div>
+    </div>
+    <div className="fright fx-1 fx-col">
+      <h1 className="short-title fx-1">
+        <div>
+          <span>{name}</span>
+        </div>
+      </h1>
+
+      <ul className="short-list">
+        <li>
+          <span>Model:</span>
+          {model}
+        </li>
+        <li>
+          <span>Manufacturer:</span>
+          {manufacturer}
+        </li>
+        <li>
+          <span>Cost in credits:</span>
+          {cost_in_credits}
+        </li>
+        <li>
+          <span>length:</span>
+          {length}
+        </li>
+        <li>
+          <span>Max atmosphering speed:</span>
+          {max_atmosphering_speed}
+        </li>
+        <li>
+          <span>Crew:</span>
+          {crew}
+        </li>
+        <li>
+          <span>Passengers:</span>
+          {passengers}
+        </li>
+        <li>
+          <span>Cargo capacity:</span>
+          {cargo_capacity}
+        </li>
+        <li>
+          <span>Consumables:</span>
+          {consumables}
+        </li>
+        <li>
+          <span>Vehicle class:</span>
+          {vehicle_class}
+        </li>
+        <li>
+          <span>Pilots:</span>
+          {pilots.map((item) => (
+            <Link
+              to="/pilot"
+              className="linkItem"
+              onClick={() => {
+                getNewObject(item.slice(21, item.length - 1));
+              }}
+              key={item.slice(20)}
+            >
+              {item}
+            </Link>
+          ))}
+        </li>
+        <li>
+          <span>Films:</span>
+          {films.map((item) => (
+            <Link
+              to="/film"
+              className="linkItem"
+              onClick={() => {
+                getNewObject(item.slice(21, item.length - 1));
+              }}
+              key={item.slice(20)}
+            >
+              {item}
+            </Link>
+          ))}
+        </li>
+      </ul>
+    </div>
+  </div>
+);
+
+Vehicle.propTypes = {
+  name: PropTypes.string.isRequired,
+  model: PropTypes.number.isRequired,
+  manufacturer: PropTypes.string.isRequired,
+  cost_in_credits: PropTypes.string.isRequired,
+  length: PropTypes.string.isRequired,
+  max_atmosphering_speed: PropTypes.string.isRequired,
+  crew: PropTypes.string.isRequired,
+  passengers: PropTypes.string.isRequired,
+  cargo_capacity: PropTypes.string.isRequired,
+  consumables: PropTypes.string.isRequired,
+  vehicle_class: PropTypes.string.isRequired,
+  pilots: PropTypes.arrayOf(PropTypes.string),
+  films: PropTypes.arrayOf(PropTypes.string),
+  getNewObject: PropTypes.func.isRequired,
+};
+
+Vehicle.defaultProps = {
+  films: [],
+  pilots: [],
+};

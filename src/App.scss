@@ -1,0 +1,75 @@
+.app {
+  background: url('./img/starwars.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+  width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.title {
+  color: #ffff;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.search {
+  display: block;
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  font-size: 22px;
+
+  &:focus {
+    border-color: #66afe9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .6),
+      0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),
+      0 0 8px rgba(102, 175, 233, .6);
+    background: #fff;
+    outline: none;
+  }
+}
+
+.nameFilms {
+  display: inline-block;
+  font-size: 33px;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 20px;
+  color: #fbe60a;
+}
+
+.sortFilms {
+  margin-left: 440px;
+  font-size: 15px;
+  color: #fbe60a;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.listFilms {
+  margin: 0 auto;
+  margin-top: 55px;
+  width: 60%;
+  background-color: rgba(76, 76, 76, .85);
+  padding-bottom: 15px;
+}
+
+.listFilms__items {
+  font-size: 23px;
+  font-weight: 600;
+  color: #fbe60a;
+  & a {
+    color: #fbe60a;
+  }
+}
