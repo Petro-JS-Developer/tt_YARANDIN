@@ -6,7 +6,6 @@ import './ListFilms.scss';
 export const ListFilms = ({
   currentListFilms,
   setCurrentListFilms,
-  getNewObject,
 }) => {
   const [directionSortTable, setDirectionSortTable] = useState('asc');
 
@@ -28,7 +27,7 @@ export const ListFilms = ({
       <button type="button" className="sortFilms" onClick={sortFilms}>Sort films</button>
       {currentListFilms.map((film, i) => (
         <li className="listFilms__items" key={film.episode_id}>
-          <Link to={`/films/${i + 1}`} className="tableCell" onClick={() => getNewObject(`/films/${i + 1}`)}>{film.title}</Link>
+          <Link to={`/films/${i + 1}`} className="tableCell">{film.title}</Link>
         </li>
       ))}
     </ol>
@@ -36,7 +35,6 @@ export const ListFilms = ({
 };
 
 ListFilms.propTypes = {
-  getNewObject: PropTypes.func.isRequired,
   setCurrentListFilms: PropTypes.func.isRequired,
   currentListFilms: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,

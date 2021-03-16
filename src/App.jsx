@@ -4,7 +4,6 @@ import './App.scss';
 import {
   Switch,
   Route,
-  useHistory,
 } from 'react-router-dom';
 import { Loader } from './Components/Loader/Loader';
 import { getData } from './api';
@@ -20,29 +19,17 @@ function App() {
   const [allFilms, setAllFilms] = useState([]);
   const [currentListFilms, setCurrentListFilms] = useState([]);
   const [query, setQuery] = useState('');
-  const [selectedObject, setSelectedObject] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
-
-  const getNewObject = (url) => {
-    setIsLoading(false);
-    getData(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setSelectedObject(res);
-      });
-    setIsLoading(true);
-  };
 
   useEffect(() => {
-    getData('/films')
+    setIsLoading(false);
+    getData('/films/')
       .then((res) => res.json())
       .then((res) => {
         setCurrentListFilms(res.results);
         setAllFilms(res.results);
       });
-
-    getNewObject(window.location.pathname);
+    setIsLoading(true);
   }, []);
 
   useEffect(() => {
@@ -52,10 +39,6 @@ function App() {
       (title).toLowerCase()
         .includes(query.toLowerCase()))));
   }, [query]);
-
-  useEffect(() => history.listen((location) => {
-    getNewObject(location.pathname);
-  }), [history]);
 
   return (
     <div className="app">
@@ -68,31 +51,28 @@ function App() {
               <ListFilms
                 currentListFilms={currentListFilms}
                 setCurrentListFilms={setCurrentListFilms}
-                setSelectedObject={setSelectedObject}
-                getNewObject={getNewObject}
               />
             </Route>
             <Route path="/films/">
-              <Film {...selectedObject} getNewObject={getNewObject} />
+              <Film />
             </Route>
             <Route path="/people/">
-              <Character {...selectedObject} getNewObject={getNewObject} />
+              <Character />
             </Route>
             <Route path="/planets/">
-              <Planet {...selectedObject} getNewObject={getNewObject} />
+              <Planet />
             </Route>
             <Route path="/species/">
-              <Specie {...selectedObject} getNewObject={getNewObject} />
+              <Specie />
             </Route>
             <Route path="/starships/">
-              <Starship {...selectedObject} getNewObject={getNewObject} />
+              <Starship />
             </Route>
             <Route path="/vehicles/">
-              <Vehicle {...selectedObject} getNewObject={getNewObject} />
+              <Vehicle />
             </Route>
           </Switch>
         ) : <Loader />}
-
       </div>
     </div>
   );
