@@ -16,7 +16,6 @@ export const Film = ({
   starships,
   vehicles,
   species,
-  getNewObject,
 }) => (
   <div className="fcols fx-row">
     <div className="fLeft">
@@ -56,13 +55,10 @@ export const Film = ({
           <span>Characters:</span>
           {characters.map((item) => (
             <Link
-              to="/people"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
+              to={item.slice(20, item.length - 1)}
               type="button"
               className="linkItem"
-              key={item.slice(21, item.length - 1)}
+              key={item.slice(20, item.length - 1)}
             >
               {item}
             </Link>
@@ -72,13 +68,10 @@ export const Film = ({
           <span>Planets:</span>
           {planets.map((item) => (
             <Link
-              to="/planet"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
+              to={item.slice(20, item.length - 1)}
               type="button"
               className="linkItem"
-              key={item.slice(21, item.length - 1)}
+              key={item.slice(20, item.length - 1)}
             >
               {item}
             </Link>
@@ -88,13 +81,10 @@ export const Film = ({
           <span>Starships:</span>
           {starships.map((item) => (
             <Link
-              to="/starship"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
+              to={item.slice(20, item.length - 1)}
               type="button"
               className="linkItem"
-              key={item.slice(21, item.length - 1)}
+              key={item.slice(20, item.length - 1)}
             >
               {item}
             </Link>
@@ -104,13 +94,10 @@ export const Film = ({
           <span>Vehicles:</span>
           {vehicles.map((item) => (
             <Link
-              to="/vehicle"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
+              to={item.slice(20, item.length - 1)}
               type="button"
               className="linkItem"
-              key={item.slice(21, item.length - 1)}
+              key={item.slice(20, item.length - 1)}
             >
               {item}
             </Link>
@@ -120,13 +107,10 @@ export const Film = ({
           <span>Species:</span>
           {species.map((item) => (
             <Link
-              to="/specie"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
+              to={item.slice(20, item.length - 1)}
               type="button"
               className="linkItem"
-              key={item.slice(21, item.length - 1)}
+              key={item.slice(20, item.length - 1)}
             >
               {item}
             </Link>
@@ -149,7 +133,6 @@ Film.propTypes = {
   starships: PropTypes.arrayOf(PropTypes.string),
   vehicles: PropTypes.arrayOf(PropTypes.string),
   species: PropTypes.arrayOf(PropTypes.string),
-  getNewObject: PropTypes.func.isRequired,
 };
 
 Film.defaultProps = {

@@ -18,7 +18,6 @@ export const Vehicle = ({
   vehicle_class,
   pilots,
   films,
-  getNewObject,
 }) => (
   <div className="fcols fx-row">
     <div className="fLeft">
@@ -78,11 +77,8 @@ export const Vehicle = ({
           <span>Pilots:</span>
           {pilots.map((item) => (
             <Link
-              to="/people"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -94,11 +90,8 @@ export const Vehicle = ({
           <span>Films:</span>
           {films.map((item) => (
             <Link
-              to="/film"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -124,7 +117,6 @@ Vehicle.propTypes = {
   vehicle_class: PropTypes.string.isRequired,
   pilots: PropTypes.arrayOf(PropTypes.string),
   films: PropTypes.arrayOf(PropTypes.string),
-  getNewObject: PropTypes.func.isRequired,
 };
 
 Vehicle.defaultProps = {

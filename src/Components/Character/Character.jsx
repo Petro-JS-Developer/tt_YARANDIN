@@ -18,7 +18,6 @@ export const Character = ({
   species,
   vehicles,
   starships,
-  getNewObject,
 }) => (
   <div className="fcols fx-row">
     <div className="fLeft">
@@ -64,17 +63,24 @@ export const Character = ({
         </li>
         <li>
           <span>homeworld:</span>
+          {/* <Link
+            to="/planets/"
+            className="linkItem"
+            onClick={() => {
+              getNewObject(homeworld.slice(21, homeworld.length - 1));
+            }}
+            key={homeworld.slice(20)}
+          >
+            {homeworld}
+          </Link> */}
           {homeworld}
         </li>
         <li>
           <span>Films:</span>
           {films.map((item) => (
             <Link
-              to="/film"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -85,11 +91,8 @@ export const Character = ({
           <span>Starships:</span>
           {starships.map((item) => (
             <Link
-              to="/starship"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -100,26 +103,21 @@ export const Character = ({
           <span>Vehicles:</span>
           {vehicles.map((item) => (
             <Link
-              to="/vehicle"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
             </Link>
           ))}
+          .
         </li>
         <li>
           <span>Species:</span>
           {species.map((item) => (
             <Link
-              to="/specie"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -145,7 +143,6 @@ Character.propTypes = {
   starships: PropTypes.arrayOf(PropTypes.string),
   vehicles: PropTypes.arrayOf(PropTypes.string),
   species: PropTypes.arrayOf(PropTypes.string),
-  getNewObject: PropTypes.func.isRequired,
 };
 
 Character.defaultProps = {

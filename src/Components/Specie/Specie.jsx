@@ -17,7 +17,6 @@ export const Specie = ({
   language,
   people,
   films,
-  getNewObject,
 }) => (
   <div className="fcols fx-row">
     <div className="fLeft">
@@ -66,9 +65,6 @@ export const Specie = ({
           {/* <Link
             to="/planet"
             className="linkItem"
-            onClick={() => {
-              getNewObject(homeworld.slice(21, homeworld.length - 1));
-            }}
             key={homeworld.slice(20)}
           >
             {homeworld}
@@ -83,11 +79,8 @@ export const Specie = ({
           <span>People:</span>
           {people.map((item) => (
             <Link
-              to="/people"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -99,11 +92,8 @@ export const Specie = ({
           <span>Films:</span>
           {films.map((item) => (
             <Link
-              to="/film"
+              to={item.slice(20, item.length - 1)}
               className="linkItem"
-              onClick={() => {
-                getNewObject(item.slice(21, item.length - 1));
-              }}
               key={item.slice(20)}
             >
               {item}
@@ -117,7 +107,7 @@ export const Specie = ({
 
 Specie.propTypes = {
   name: PropTypes.string.isRequired,
-  classification: PropTypes.number.isRequired,
+  classification: PropTypes.string.isRequired,
   designation: PropTypes.string.isRequired,
   average_height: PropTypes.string.isRequired,
   skin_colors: PropTypes.string.isRequired,
@@ -128,7 +118,6 @@ Specie.propTypes = {
   language: PropTypes.string.isRequired,
   people: PropTypes.arrayOf(PropTypes.string),
   films: PropTypes.arrayOf(PropTypes.string),
-  getNewObject: PropTypes.func.isRequired,
 };
 
 Specie.defaultProps = {
